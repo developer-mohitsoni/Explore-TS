@@ -1,9 +1,8 @@
-function add(num1, num2) {
-    if (typeof num1 === "number" && typeof num2 === "number")
-        return num1 + num2;
-    else {
-        throw new Error("Both inputs must be numbers");
+function add(num1, num2, printResult) {
+    var result = num1 + num2;
+    if (printResult) {
+        return result;
     }
 }
-var result = add(5, 10);
+var result = add(5, 10, true);
 console.log(result);
