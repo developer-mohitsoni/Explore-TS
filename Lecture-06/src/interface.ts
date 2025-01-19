@@ -1,4 +1,4 @@
-//! INterface
+//! Interface
 
 // interface Person {
 //     name:string;
@@ -33,7 +33,7 @@
 //     }
 // }
 
-// const p1 = new Person("Aman");
+// const p1 = new Person("Ayushi");
 // p1.greet("Hi there I am");
 
 //! readonly
@@ -53,7 +53,7 @@
 // }
 // let user1: Greetable;
 // user1 = new Person("Patel");
-// user1.name = "Patel Mernstack"; error
+// user1.name = "Ayushi Sharma"; error
 
 //! Extending Interface
 // interface Named {
@@ -75,7 +75,7 @@
 // }
 
 // let user1: Greetable;
-// user1 = new Person("Patel");
+// user1 = new Person("Ayushi");
 // console.log(user1);
 
 // type addFun = (a : number, b : number) => number;
