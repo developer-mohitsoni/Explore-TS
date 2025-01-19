@@ -85,7 +85,79 @@
 
 //! Getter and setter methods
 
-class Department {
+// class Department {
+//   public name: string;
+//   protected employees: string[];
+//   private readonly id: string;
+//   constructor(id: string, n: string) {
+//     this.name = n;
+//     this.id = id; // only once you can initialize
+//     this.employees = [];
+//   }
+//   describe(this: Department) {
+//     return `Department Name: ${this.name} and Id: ${this.id}`;
+//   }
+
+//   addEmployee(employee: string) {
+//     this.employees.push(employee);
+//   }
+
+//   printeEmployee() {
+//     console.log(`Number of employees: ${this.employees.length}`);
+//     console.log(this.employees);
+//   }
+// }
+
+// class AccountingDepartment extends Department {
+//   //   reports: string[] = [];
+//   constructor(id: string, private reports: string[] = []) {
+//     super(id, "Accounting");
+//   }
+//   addReports(text: string) {
+//     this.reports.push(text);
+//   }
+//   printReports() {
+//     console.log(this.reports);
+//   }
+
+//   addEmployee(emp: string): void {
+//     if (emp === "Mohit") return;
+//     this.employees.push(emp);
+//   }
+
+//   get getReports() {
+//     if (this.reports.length > 0) {
+//       return this.reports;
+//     }
+//     throw new Error("No reports found");
+//   }
+//   set setReport(report: string) {
+//     this.reports.push(report);
+//   }
+// }
+
+// const accountingDep = new AccountingDepartment("d1", []);
+// accountingDep.addReports("Bugs");
+
+// accountingDep.printReports();
+
+// accountingDep.addEmployee("Mohit");
+
+// accountingDep.printeEmployee();
+
+// accountingDep.addEmployee("Rahul");
+
+// // setter and getter
+
+// console.log(accountingDep.getReports);
+
+// accountingDep.setReport = "New Report";
+
+// console.log(accountingDep.getReports);
+
+//! static method
+
+class Department2 {
   public name: string;
   protected employees: string[];
   private readonly id: string;
@@ -94,7 +166,7 @@ class Department {
     this.id = id; // only once you can initialize
     this.employees = [];
   }
-  describe(this: Department) {
+  describe(this: Department2) {
     return `Department Name: ${this.name} and Id: ${this.id}`;
   }
 
@@ -106,51 +178,11 @@ class Department {
     console.log(`Number of employees: ${this.employees.length}`);
     console.log(this.employees);
   }
-}
 
-class AccountingDepartment extends Department {
-  //   reports: string[] = [];
-  constructor(id: string, private reports: string[] = []) {
-    super(id, "Accounting");
-  }
-  addReports(text: string) {
-    this.reports.push(text);
-  }
-  printReports() {
-    console.log(this.reports);
-  }
-
-  addEmployee(emp: string): void {
-    if (emp === "Mohit") return;
-    this.employees.push(emp);
-  }
-
-  get getReports() {
-    if (this.reports.length > 0) {
-      return this.reports;
-    }
-    throw new Error("No reports found");
-  }
-  set setReport(report: string) {
-    this.reports.push(report);
+  static getSalary() {
+    return { salary: 500000 };
   }
 }
 
-const accountingDep = new AccountingDepartment("d1", []);
-accountingDep.addReports("Bugs");
-
-accountingDep.printReports();
-
-accountingDep.addEmployee("Mohit");
-
-accountingDep.printeEmployee();
-
-accountingDep.addEmployee("Rahul");
-
-// setter and getter
-
-console.log(accountingDep.getReports);
-
-accountingDep.setReport = "New Report";
-
-console.log(accountingDep.getReports);
+const salary = Department2.getSalary(); //  without creating object, we can access by its class name
+console.log(salary);
