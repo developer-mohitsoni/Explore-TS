@@ -122,25 +122,50 @@
 // accountingDep.setReport = "New Report";
 // console.log(accountingDep.getReports);
 //! static method
-class Department2 {
+// class Department2 {
+//   public name: string;
+//   protected employees: string[];
+//   private readonly id: string;
+//   constructor(id: string, n: string) {
+//     this.name = n;
+//     this.id = id; // only once you can initialize
+//     this.employees = [];
+//   }
+//   describe(this: Department2) {
+//     return `Department Name: ${this.name} and Id: ${this.id}`;
+//   }
+//   addEmployee(employee: string) {
+//     this.employees.push(employee);
+//   }
+//   printeEmployee() {
+//     console.log(`Number of employees: ${this.employees.length}`);
+//     console.log(this.employees);
+//   }
+//   static getSalary() {
+//     return { salary: 500000 };
+//   }
+// }
+// const salary = Department2.getSalary(); //  without creating object, we can access by its class name
+// console.log(salary);
+//! abstract classes
+class Department3 {
     constructor(id, n) {
-        this.name = n;
-        this.id = id; // only once you can initialize
         this.employees = [];
-    }
-    describe() {
-        return `Department Name: ${this.name} and Id: ${this.id}`;
-    }
-    addEmployee(employee) {
-        this.employees.push(employee);
-    }
-    printeEmployee() {
-        console.log(`Number of employees: ${this.employees.length}`);
-        console.log(this.employees);
-    }
-    static getSalary() {
-        return { salary: 500000 };
+        this.id = id;
+        this.name = n;
     }
 }
-const salary = Department2.getSalary(); //  without creating object, we can access by its class name
-console.log(salary);
+class Subclass extends Department3 {
+    constructor(id, reports) {
+        super(id, "Accounting");
+        this.reports = reports;
+    }
+    describe() {
+        console.log("Department", this.id);
+    }
+    displayName() {
+        console.log(this.name);
+    }
+}
+const subClass = new Subclass("D1", []);
+subClass.describe();
