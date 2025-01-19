@@ -64,6 +64,7 @@
 //   }
 // }
 //! Inheritance
+//! Override properties & protected access modifiers
 class Department {
     constructor(id, n) {
         this.name = n;
@@ -93,7 +94,15 @@ class AccountingDepartment extends Department {
     printReports() {
         console.log(this.reports);
     }
+    addEmployee(emp) {
+        if (emp === "Mohit")
+            return;
+        this.employees.push(emp);
+    }
 }
 const accountingDep = new AccountingDepartment("d1", []);
 accountingDep.addReports("Bugs");
 accountingDep.printReports();
+accountingDep.addEmployee("Mohit");
+accountingDep.printeEmployee();
+accountingDep.addEmployee("Rahul");
