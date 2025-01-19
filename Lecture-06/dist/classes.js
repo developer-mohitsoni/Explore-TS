@@ -20,6 +20,7 @@
 class Department {
     //   name: string;
     //   private employees: string[];
+    // shorthand
     constructor(name, employees) {
         this.name = name;
         this.employees = employees;

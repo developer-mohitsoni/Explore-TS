@@ -26,6 +26,7 @@ class Department {
   //   name: string;
   //   private employees: string[];
 
+  // shorthand
   constructor(public name: string, private employees: string[]) {
     // this.name = n;
     // this.employees = [];
