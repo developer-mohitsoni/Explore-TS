@@ -83,6 +83,8 @@
 
 //! Override properties & protected access modifiers
 
+//! Getter and setter methods
+
 class Department {
   public name: string;
   protected employees: string[];
@@ -122,6 +124,16 @@ class AccountingDepartment extends Department {
     if (emp === "Mohit") return;
     this.employees.push(emp);
   }
+
+  get getReports() {
+    if (this.reports.length > 0) {
+      return this.reports;
+    }
+    throw new Error("No reports found");
+  }
+  set setReport(report: string) {
+    this.reports.push(report);
+  }
 }
 
 const accountingDep = new AccountingDepartment("d1", []);
@@ -134,3 +146,11 @@ accountingDep.addEmployee("Mohit");
 accountingDep.printeEmployee();
 
 accountingDep.addEmployee("Rahul");
+
+// setter and getter
+
+console.log(accountingDep.getReports);
+
+accountingDep.setReport = "New Report";
+
+console.log(accountingDep.getReports);
