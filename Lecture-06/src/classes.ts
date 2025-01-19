@@ -23,12 +23,12 @@
 
 //! Access Modifiers
 class Department {
-  name: string;
-  private employees: string[];
+  //   name: string;
+  //   private employees: string[];
 
-  constructor(n: string) {
-    this.name = n;
-    this.employees = [];
+  constructor(public name: string, private employees: string[]) {
+    // this.name = n;
+    // this.employees = [];
   }
   describe(this: Department) {
     return `Department Name: ${this.name}`;
@@ -44,10 +44,10 @@ class Department {
   }
 }
 
-const accounting = new Department("Accounting");
+const accounting = new Department("Accounting", []);
 console.log(accounting.describe()); // Department Name: Accounting
 accounting.addEmployee("Mohit");
 accounting.addEmployee("Ayushi");
 accounting.printeEmployee(); // Number of employees: 2
 
-// console.log(accounting.employees); 
+// console.log(accounting.employees);

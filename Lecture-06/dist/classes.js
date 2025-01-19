@@ -18,9 +18,13 @@
 // console.log(accountingCopy.describe()); // Department Name: HR
 //! Access Modifiers
 class Department {
-    constructor(n) {
-        this.name = n;
-        this.employees = [];
+    //   name: string;
+    //   private employees: string[];
+    constructor(name, employees) {
+        this.name = name;
+        this.employees = employees;
+        // this.name = n;
+        // this.employees = [];
     }
     describe() {
         return `Department Name: ${this.name}`;
@@ -33,9 +37,9 @@ class Department {
         console.log(this.employees);
     }
 }
-const accounting = new Department("Accounting");
+const accounting = new Department("Accounting", []);
 console.log(accounting.describe()); // Department Name: Accounting
 accounting.addEmployee("Mohit");
 accounting.addEmployee("Ayushi");
 accounting.printeEmployee(); // Number of employees: 2
-// console.log(accounting.employees); 
+// console.log(accounting.employees);
