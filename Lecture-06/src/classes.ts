@@ -56,17 +56,42 @@
 
 //! readonly
 
+// class Department {
+//   public name: string;
+//   private employees: string[];
+//   private readonly id: string;
+//   constructor(n: string) {
+//     this.name = n;
+//     this.id = "d1"; // only once you can initialize
+//     this.employees = [];
+//   }
+//   describe(this: Department) {
+//     return `Department Name: ${this.name}`;
+//   }
+
+//   addEmployee(employee: string) {
+//     this.employees.push(employee);
+//   }
+
+//   printeEmployee() {
+//     console.log(`Number of employees: ${this.employees.length}`);
+//     console.log(this.employees);
+//   }
+// }
+
+//! Inheritance
+
 class Department {
   public name: string;
   private employees: string[];
   private readonly id: string;
-  constructor(n: string) {
+  constructor(id: string, n: string) {
     this.name = n;
-    this.id = "d1"; // only once you can initialize
+    this.id = id; // only once you can initialize
     this.employees = [];
   }
   describe(this: Department) {
-    return `Department Name: ${this.name}`;
+    return `Department Name: ${this.name} and Id: ${this.id}`;
   }
 
   addEmployee(employee: string) {
@@ -78,3 +103,21 @@ class Department {
     console.log(this.employees);
   }
 }
+
+class AccountingDepartment extends Department {
+  //   reports: string[] = [];
+  constructor(id: string, private reports: string[] = []) {
+    super(id, "Accounting");
+  }
+  addReports(text: string) {
+    this.reports.push(text);
+  }
+  printReports() {
+    console.log(this.reports);
+  }
+}
+
+const accountingDep = new AccountingDepartment("d1", []);
+accountingDep.addReports("Bugs");
+
+accountingDep.printReports();
